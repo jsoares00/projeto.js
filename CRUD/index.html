@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>projeto CRUD</title>
+</head>
+<body>
+    <h1>Patio Detran</h1>
+    <hr><hr>
+    <div id="form">
+        <h4>informaçao dos veiculos</h4>
+        <div class="container-inputs">
+            <label for="input-nome">Nome</label>
+            <input id="input-nome" type="text">
+        </div>
+        <div class="container-inputs">
+            <label for="">Ano</label>
+            <input id="input-ano" type="number">
+        </div>
+        <div class="container-inputs">
+            <label for="">Cor</label>
+            <input id="input-cor" type="text">
+        </div>
+        <div class="container-inputs">
+            <label for="">Custo</label>
+            <input id="input-custo" type="number">
+        </div>
+        <div class="container-inputs">
+            <label for="">Placa</label>
+            <input id="input-placa" type="text">
+        </div>
+        <br>
+
+        <button onclick="cadastrarCarro()">cadastrar</button>
+        <button onclick="excluirDino()">retirar carro</button>
+
+    </div>
+    <hr><hr>
+    <div id="painel-botoes">
+        <button onclick="mostrarTodos()">Mostrar todos Carro</button>
+        <button onclick="testar()">Teste</button>
+    </div>
+    <br><br>
+    <div>
+        <label for=" ">pesquisar o carro pela Placa</label><br>
+        <input type="text">
+        
+<select>
+    <option value=" "></option>
+</select>
+
+        <button onclick="pesquisar()">Pesquisar</button>
+
+    </div>
+    
+    <p class="painelResultado">
+😁vai corinthians😁
+    </p>
+
+    <script src="script.js"></script>
+</body>
+</html>
