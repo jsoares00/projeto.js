@@ -1,1 +1,5 @@
-const carros[]
+const carros=[]
+
+function cadastrarcarro(){
+    
+}
