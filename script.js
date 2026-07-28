@@ -78,7 +78,6 @@ function mostrarTodos(){
         ` 
     }
 }
-4
 
 function testar() {
     
@@ -131,7 +130,7 @@ function testar() {
     ]
 
     console.log(dinos);
-
+ mostrarTodos()
 }
 
 function pesquisar(){
