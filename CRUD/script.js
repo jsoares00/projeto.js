@@ -1,15 +1,9 @@
 function salvarDados(){
     localStorage.setItem('carros', JSON.stringify(carros))
-    
-    // let texto = JSON.stringify(dinos)
-    // localStorage.setItem('dinos', texto)
 }
 
 function carregarDados(){
     carros = JSON.parse(localStorage.getItem('carros')) || []
-    
-    // let textoLido = localStorage.getItem('dinos')
-    // dinos = JSON.parse(textoLido)
 }
 
 let carros=[]
@@ -38,8 +32,6 @@ function limparFormulario() {
     document.getElementById('cor').value = ''
     document.getElementById('custo').value = ''
     document.getElementById('placa').value = ''
-
-    document.getElementById('nome').focus()
 }
 function mostrarTodos(){
 carregarDados()
@@ -51,14 +43,14 @@ carregarDados()
             <h2>${carros[i].nome}</h2>
             <p>ano: ${carros[i].ano}</p>
             <p>Cor: ${carros[i].cor}</p>
-            <p>Divida: R$${carros[i].custo}</p>
+            <p>Divida: R$${carros[i].custo}.tofixed(2)</p>
             <p>Placa: ${carros[i].placa}</p>
         </div>
         ` 
     }
 }
 function retirarCarro(){
-    let placa = document.getElementById('placa').value
+    let placa = document.getElementById('pesquisa').value
     for(let i = 0; i<carros.length; i++){
         if(placa == carros[i].placa ){
             console.log(carros[i]);
