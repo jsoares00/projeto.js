@@ -4,59 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>CRUD</title>
+    <title>projeto CRUD</title>
 </head>
 <body>
-    <h1>CRUD</h1>
-
+    <h1>Patio Detran 🚗⚠️</h1>
+    <hr><hr>
     <div id="form">
-        <div class="container-inputs">
-            <label for="input-nome">Nome</label>
-            <input id="input-nome" type="text">
-        </div>
-        <div class="container-inputs">
-            <label for="">Altura</label>
-            <input id="input-altura" type="number">
-        </div>
-        <div class="container-inputs">
+        <h4>informaçao dos veiculos</h4>
+        <div id="menu">  
+          <div class="container-inputs">
+            <label for="">Nome</label>
+            <input id="nome" type="text">
+           </div>
+           <div class="container-inputs">
+            <label for="">Ano</label>
+            <input id="ano" type="number">
+           </div>
+           <div class="container-inputs">
             <label for="">Cor</label>
-        
-            <input id="input-cor" type="text">
+            <input id="cor" type="text">
+            </div>
+            <div class="container-inputs">
+            <label for="">Divida/Multa</label>
+            <input id="custo" type="number">
+            </div>
+            <div class="container-inputs">
+            <label for="">Placa</label>
+            <input id="placa" type="text">
+            </div>
+          <br>
+          <div id="butt">
+          <button onclick="cadastrarCarro()">cadastrar</button>
         </div>
-        <div class="container-inputs">
-            <label for="">Custo</label>
-            <input id="input-custo" type="number">
-        </div>
-        <div class="container-inputs" id="div-id">
-            <label for="">ID</label>
-            <input id="input-id" type="number">
-        </div>
-
-        <button onclick="cadastrarDino()">+</button>
-        <button onclick="salvarDino()">💾</button>
-        <button onclick="excluirDino()">🗑️</button>
-
-    </div>
-    <!-- <dialog id="formulario">
-
-    </dialog> -->
+    </div> 
+</div>
+<hr><hr>
+<div>
+    <button onclick="mostrarTodos()">Mostrar todos Carro</button>
+    <button onclick="testar()">Teste</button>
+</div>
+<br><br>
+<P id="resultadoPes">
+    --RESULTADO PESQUISA AQUI--
+</P>
+<br><br>
 
 
-  
-    <div id="painel-botoes">
-        <button onclick="mostrarTodos()">Mostrar todos dinos</button>
-        <button onclick="testar()">Teste</button>
-        <button onclick="pesquisar()">🔍</button>
-
-    </div>
- 
-
-    <div id="painel-dinos">
-        tem nada dentro
-    </div>
-
-
+<div>
+    <label for=" ">pesquisar o carro pela Placa</label><br>
+    <input type="text" id="pesquisa">
+    <select>
+        <option value=" "></option>
+    </select>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="retirarCarro()">Retirar Carro</button>
     
+
+    <p id="painel-Resultado">
+    </p>
+
     <script src="script.js"></script>
 </body>
 </html>
