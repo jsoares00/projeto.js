@@ -12,24 +12,24 @@
     <div id="form">
         <h4>informaçao dos veiculos</h4>
         <div class="container-inputs">
-            <label for="input-nome">Nome</label>
-            <input id="input-nome" type="text">
+            <label for="">Nome</label>
+            <input id="nome" type="text">
         </div>
         <div class="container-inputs">
             <label for="">Ano</label>
-            <input id="input-ano" type="number">
+            <input id="ano" type="number">
         </div>
         <div class="container-inputs">
             <label for="">Cor</label>
-            <input id="input-cor" type="text">
+            <input id="cor" type="text">
         </div>
         <div class="container-inputs">
             <label for="">Divida/Multa</label>
-            <input id="input-custo" type="number">
+            <input id="custo" type="number">
         </div>
         <div class="container-inputs">
             <label for="">Placa</label>
-            <input id="input-placa" type="text">
+            <input id="placa" type="text">
         </div>
         <br>
 
@@ -38,25 +38,26 @@
 
     </div>
     <hr><hr>
-    <div id="painel-botoes">
+    <div>
         <button onclick="mostrarTodos()">Mostrar todos Carro</button>
         <button onclick="testar()">Teste</button>
     </div>
     <br><br>
-    <P>
+    <P id="resultadoPes">
         --RESULTADO PESQUISA AQUI--
     </P>
     <br><br>
+
+
     <div>
         <label for=" ">pesquisar o carro pela Placa</label><br>
-        <input type="text">
-        
+        <input type="text" id="pesquisa">
 <select>
     <option value=" "></option>
 </select>
-
         <button onclick="pesquisar()">Pesquisar</button>
     
+
     <p id="painel-Resultado">
     </p>
 

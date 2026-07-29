@@ -1,30 +1,48 @@
-const carros=[]
+function salvarDados(){
+    localStorage.setItem('carros', JSON.stringify(carros))
+    
+    // let texto = JSON.stringify(dinos)
+    // localStorage.setItem('dinos', texto)
+}
+
+function carregarDados(){
+    carros = JSON.parse(localStorage.getItem('carros')) || []
+    
+    // let textoLido = localStorage.getItem('dinos')
+    // dinos = JSON.parse(textoLido)
+}
+
+let carros=[]
 
 function cadastrarCarro(){
+carregarDados()    
+
     const novoCar = {
-    nome: document.getElementById('input-nome').value,
-    ano: Number(document.getElementById("input-ano").value),
-    cor: document.getElementById("input-cor").value,
-    custo: Number(document.getElementById("input-custo").value),
-    placa: document.getElementById('input-placa').value,
+    nome: document.getElementById('nome').value,
+    ano: Number(document.getElementById("ano").value),
+    cor: document.getElementById("cor").value,
+    custo: Number(document.getElementById("custo").value),
+    placa: document.getElementById('placa').value,
     }
 carros.push(novoCar)
 
 console.log(carros)
 
+salvarDados()
 limparFormulario()
 mostrarTodos()
 }
 function limparFormulario() {
-    document.getElementById('input-nome').value = ''
-    document.getElementById('input-ano').value = ''
-    document.getElementById('input-cor').value = ''
-    document.getElementById('input-custo').value = ''
-    document.getElementById('input-placa').value = ''
+    document.getElementById('nome').value = ''
+    document.getElementById('ano').value = ''
+    document.getElementById('cor').value = ''
+    document.getElementById('custo').value = ''
+    document.getElementById('placa').value = ''
 
-    document.getElementById('input-nome').focus()
+    document.getElementById('nome').focus()
 }
 function mostrarTodos(){
+carregarDados()
     document.getElementById('painel-Resultado').innerHTML = '' 
 
     for(let i=0; i<carros.length; i++){
@@ -33,47 +51,37 @@ function mostrarTodos(){
             <h2>${carros[i].nome}</h2>
             <p>ano: ${carros[i].ano}</p>
             <p>Cor: ${carros[i].cor}</p>
-            <p>Custo: ${carros[i].custo}</p>
+            <p>Divida: R$${carros[i].custo}</p>
             <p>Placa: ${carros[i].placa}</p>
         </div>
         ` 
     }
 }
 function retirarCarro(){
-    let placa = document.getElementById('input-placa').value
-
+    let placa = document.getElementById('placa').value
     for(let i = 0; i<carros.length; i++){
         if(placa == carros[i].placa ){
             console.log(carros[i]);
-            carros.splice(i, 1)
+            carros.splice(i, 1);
             console.log(i);
         }
     }
+    salvarDados()
     mostrarTodos()
     limparFormulario()
+    
 }
-function pesquisar(){
-    let placa = document.getElementById('input-placa').value
 
-    for(let i = 0; i<carros.length; i++){
-        if(placa == carros[i].placa ){
-            console.log(carros[i]);
-document.getElementById('painel-Resultado').innerHTML += 
-        `<div>
-            <h2>${carros[i].nome}</h2>
-            <p>ano: ${carros[i].ano}</p>
-            <p>Cor: ${carros[i].cor}</p>
-            <p>Custo: ${carros[i].custo}</p>
-            <p>Placa: ${carros[i].placa}</p>
-        </div>
-        ` 
-        }
-    }
-}
-/*function testar(){
+function testar(){
+ carregarDados()
+
+    localStorage.setItem('teste', 45)
+
+    let testeDeLeitura = localStorage.getItem('teste')
+    console.log(testeDeLeitura);
      carros = [
     {
-        id: 1718324500001,
+       
         carro: "Honda Civic",
         ano: 2022,
         cor: "Prata",
@@ -81,7 +89,6 @@ document.getElementById('painel-Resultado').innerHTML +=
         placa: "ABC1D23"
     },
     {
-        id: 1718324500002,
         carro: "Toyota Corolla",
         ano: 2021,
         cor: "Branco",
@@ -89,7 +96,6 @@ document.getElementById('painel-Resultado').innerHTML +=
         placa: "EFG4H56"
     },
     {
-        id: 1718324500003,
         carro: "Chevrolet Onix",
         ano: 2023,
         cor: "Preto",
@@ -97,7 +103,6 @@ document.getElementById('painel-Resultado').innerHTML +=
         placa: "IJK7L89"
     },
     {
-        id: 1718324500004,
         carro: "Volkswagen Gol",
         ano: 2019,
         cor: "Vermelho",
@@ -105,7 +110,6 @@ document.getElementById('painel-Resultado').innerHTML +=
         placa: "MNO2P34"
     },
     {
-        id: 1718324500005,
         carro: "Ford Ranger",
         ano: 2024,
         cor: "Azul",
@@ -116,4 +120,20 @@ document.getElementById('painel-Resultado').innerHTML +=
 console.log(carros)
 
 mostrarTodos()
-}*/
+}
+function pesquisar(){
+    let placa = document.getElementById('pesquisa').value
+    for(let i = 0; i<carros.length; i++){
+        if(placa == carros[i].placa ){
+           document.getElementById('resultadoPes').innerHTML = 
+        `<div>
+            <h2>${carros[i].nome}</h2>
+            <p>ano: ${carros[i].ano}</p>
+            <p>Cor: ${carros[i].cor}</p>
+            <p>Divida: R$${carros[i].custo}</p>
+            <p>Placa: ${carros[i].placa}</p>
+        </div>
+        ` 
+        }
+    }
+}
