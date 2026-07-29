@@ -18,6 +18,7 @@ carregarDados()
     custo: Number(document.getElementById("custo").value),
     placa: document.getElementById('placa').value,
     }
+   
 carros.push(novoCar)
 
 console.log(carros)
@@ -35,7 +36,6 @@ function limparFormulario() {
 }
 function mostrarTodos(){
 carregarDados()
-    document.getElementById('painel-Resultado').innerHTML = '' 
 
     for(let i=0; i<carros.length; i++){
         document.getElementById('painel-Resultado').innerHTML += 
@@ -43,7 +43,7 @@ carregarDados()
             <h2>${carros[i].nome}</h2>
             <p>ano: ${carros[i].ano}</p>
             <p>Cor: ${carros[i].cor}</p>
-            <p>Divida: R$${carros[i].custo}.tofixed(2)</p>
+            <p>Divida: R$${carros[i].custo}</p>
             <p>Placa: ${carros[i].placa}</p>
         </div>
         ` 
@@ -67,48 +67,39 @@ function retirarCarro(){
 function testar(){
  carregarDados()
 
-    localStorage.setItem('teste', 45)
-
-    let testeDeLeitura = localStorage.getItem('teste')
-    console.log(testeDeLeitura);
-     carros = [
-    {
-       
-        carro: "Honda Civic",
-        ano: 2022,
-        cor: "Prata",
-        divida: 0,
-        placa: "ABC1D23"
-    },
-    {
-        carro: "Toyota Corolla",
-        ano: 2021,
-        cor: "Branco",
-        divida: 12500,
-        placa: "EFG4H56"
-    },
-    {
-        carro: "Chevrolet Onix",
-        ano: 2023,
-        cor: "Preto",
-        divida: 3500,
-        placa: "IJK7L89"
-    },
-    {
-        carro: "Volkswagen Gol",
-        ano: 2019,
-        cor: "Vermelho",
-        divida: 8900,
-        placa: "MNO2P34"
-    },
-    {
-        carro: "Ford Ranger",
-        ano: 2024,
-        cor: "Azul",
-        divida: 0,
-        placa: "QRS5T67"
-    }
-];
+ document.getElementById('painel-Resultado').innerHTML += 
+        `<div>
+            <h2>Civic</h2>
+            <p>ano: 2022</p>
+            <p>Cor: Preta</p>
+            <p>Divida: 500</p>
+            <p>Placa: 7FA7WS2</p>
+        </div>
+        `+
+        `<div>
+            <h2>Corolla</h2>
+            <p>ano: 2021</p>
+            <p>Cor: Prata</p>
+            <p>Divida: 5000</p>
+            <p>Placa: 7M4S1T2</p>
+        </div>
+        ` +
+        `<div>
+            <h2>Onix</h2>
+            <p>ano: 2020</p>
+            <p>Cor: Branco</p>
+            <p>Divida: 300</p>
+            <p>Placa: FH8S9G</p>
+        </div>
+        `+
+        `<div>
+            <h2>Gol G3</h2>
+            <p>ano: 2016</p>
+            <p>Cor: Preta</p>
+            <p>Divida: 200</p>
+            <p>Placa: 72DTE8</p>
+        </div>
+        ` 
 console.log(carros)
 
 mostrarTodos()
