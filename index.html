@@ -14,23 +14,23 @@
         <div id="menu">  
           <div class="container-inputs">
             <label for="">Nome</label>
-            <input id="nome" type="text">
+            <input id="nome" type="text" placeholder="Nome do Veiculo">
            </div>
            <div class="container-inputs">
             <label for="">Ano</label>
-            <input id="ano" type="number">
+            <input id="ano" type="number" placeholder="Ano ">
            </div>
            <div class="container-inputs">
             <label for="">Cor</label>
-            <input id="cor" type="text">
+            <input id="cor" type="text" placeholder="Cor">
             </div>
             <div class="container-inputs">
             <label for="">Divida/Multa</label>
-            <input id="custo" type="number">
+            <input id="custo" type="number" placeholder="Multa a Pagar">
             </div>
             <div class="container-inputs">
             <label for="">Placa</label>
-            <input id="placa" type="text">
+            <input id="placa" type="text" placeholder="Placa do Veiculo">
             </div>
           <br>
           <div id="butt">
@@ -43,6 +43,8 @@
     <button onclick="mostrarTodos()">Mostrar todos Carro</button>
     <button onclick="testar()">Teste</button>
 </div>
+<label for="">numero de veiculos no Patio</label>
+<button id="patio">0</button>
 <br><br>
 <P id="resultadoPes">
     --RESULTADO PESQUISA AQUI--
@@ -58,7 +60,7 @@
     </select>
     <button onclick="pesquisar()">Pesquisar</button>
     <button onclick="retirarCarro()">Retirar Carro</button>
-    
+</div>
 
     <p id="painel-Resultado">
     </p>

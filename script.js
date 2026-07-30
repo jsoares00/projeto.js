@@ -1,5 +1,7 @@
 function salvarDados(){
     localStorage.setItem('carros', JSON.stringify(carros))
+
+    //salva o array no Local Storage
 }
 
 function carregarDados(){
@@ -12,7 +14,7 @@ function cadastrarCarro(){
 carregarDados()    
 
     const novoCar = {
-    nome: document.getElementById('nome').value,
+    nome: document.getElementByInomd('e').value,
     ano: Number(document.getElementById("ano").value),
     cor: document.getElementById("cor").value,
     custo: Number(document.getElementById("custo").value),
@@ -33,9 +35,12 @@ function limparFormulario() {
     document.getElementById('cor').value = ''
     document.getElementById('custo').value = ''
     document.getElementById('placa').value = ''
+
 }
 function mostrarTodos(){
 carregarDados()
+
+    const painel = document.getElementById("painel-Resultado").innerHTML = ' '
 
     for(let i=0; i<carros.length; i++){
         document.getElementById('painel-Resultado').innerHTML += 
@@ -48,14 +53,16 @@ carregarDados()
         </div>
         ` 
     }
+    document.getElementById('patio').innerHTML = carros.length
 }
 function retirarCarro(){
+carregarDados()
+
     let placa = document.getElementById('pesquisa').value
     for(let i = 0; i<carros.length; i++){
         if(placa == carros[i].placa ){
-            console.log(carros[i]);
-            carros.splice(i, 1);
-            console.log(i);
+            console.log(carros[i])
+            carros.splice(i, 1)
         }
     }
     salvarDados()
@@ -63,47 +70,7 @@ function retirarCarro(){
     limparFormulario()
     
 }
-
-function testar(){
- carregarDados()
-
- document.getElementById('painel-Resultado').innerHTML += 
-        `<div>
-            <h2>Civic</h2>
-            <p>ano: 2022</p>
-            <p>Cor: Preta</p>
-            <p>Divida: 500</p>
-            <p>Placa: 7FA7WS2</p>
-        </div>
-        `+
-        `<div>
-            <h2>Corolla</h2>
-            <p>ano: 2021</p>
-            <p>Cor: Prata</p>
-            <p>Divida: 5000</p>
-            <p>Placa: 7M4S1T2</p>
-        </div>
-        ` +
-        `<div>
-            <h2>Onix</h2>
-            <p>ano: 2020</p>
-            <p>Cor: Branco</p>
-            <p>Divida: 300</p>
-            <p>Placa: FH8S9G</p>
-        </div>
-        `+
-        `<div>
-            <h2>Gol G3</h2>
-            <p>ano: 2016</p>
-            <p>Cor: Preta</p>
-            <p>Divida: 200</p>
-            <p>Placa: 72DTE8</p>
-        </div>
-        ` 
-console.log(carros)
-
-mostrarTodos()
-}
+ 
 function pesquisar(){
     let placa = document.getElementById('pesquisa').value
     for(let i = 0; i<carros.length; i++){
@@ -119,4 +86,40 @@ function pesquisar(){
         ` 
         }
     }
+}
+function testar() {
+carregarDados()
+    carros.push(
+        {
+            nome: "Civic",
+            ano: 2022,
+            cor: "Preta",
+            custo: 500,
+            placa: "7FA7WS2"
+        },
+        {
+            nome: "Corolla",
+            ano: 2021,
+            cor: "Prata",
+            custo: 5000,
+            placa: "7M4S1T2"
+        },
+        {
+            nome: "Onix",
+            ano: 2020,
+            cor: "Branco",
+            custo: 300,
+            placa: "FH8S9G"
+        },
+        {
+            nome: "Gol G3",
+            ano: 2016,
+            cor: "Preta",
+            custo: 200,
+            placa: "72DTE8"
+        }
+    )
+
+    salvarDados()
+    mostrarTodos()
 }
